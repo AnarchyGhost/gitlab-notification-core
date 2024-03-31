@@ -1,0 +1,21 @@
+package com.anarchyghost.models.common
+
+enum class EventType {
+    PUSH_EVENT,
+    TAG_EVENT,
+    ISSUE_EVENT,
+    COMMENT_EVENT,
+    MERGE_REQUEST_EVENT,
+    WIKI_PAGE_EVENT,
+    PIPELINE_EVENT,
+    JOB_EVENT,
+    DEPLOYMENT_EVENT,
+    FEATURE_FLAG_EVENT,
+    RELEASE_EVENT,
+    EMOJI_EVENT,
+    ACCESS_TOKEN_EVENT,
+    MEMBER_EVENT,
+    SUBGROUP_EVENT,
+    SYSTEM,
+    OTHER,
+}
