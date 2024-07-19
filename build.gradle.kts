@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "com.anarchyghost"
-version = "0.0.2"
+version = "0.0.3"
 
 application {
     mainClass.set("com.anarchyghost.ApplicationKt")
