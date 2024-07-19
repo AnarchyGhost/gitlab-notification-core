@@ -1,6 +1,7 @@
 val ktor_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
+val mockk_version: String by project
 
 plugins {
     kotlin("jvm") version "1.9.23"
@@ -10,7 +11,7 @@ plugins {
 }
 
 group = "com.anarchyghost"
-version = "0.0.1"
+version = "0.0.2"
 
 application {
     mainClass.set("com.anarchyghost.ApplicationKt")
@@ -25,7 +26,13 @@ repositories {
 
 dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    testImplementation("io.mockk:mockk:$mockk_version")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    testImplementation(kotlin("test"))
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 val githubPackagesUsername: String by project

@@ -19,8 +19,12 @@ object InstantSerializer : KSerializer<Instant> {
         return try {
             Instant.from(DateTimeFormatter.ISO_DATE_TIME.parse(string))
         } catch (e: Exception) {
-            //wrong gitlab date format
-            LocalDateTime.parse(string, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss 'UTC'")).atOffset(ZoneOffset.UTC).toInstant()
+            try {
+                //TODO create better date parsing method
+                LocalDateTime.parse(string, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss 'UTC'")).atOffset(ZoneOffset.UTC).toInstant()
+            } catch (e: Exception) {
+                LocalDateTime.parse(string, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss[.SSS] Z")).atOffset(ZoneOffset.UTC).toInstant()
+            }
         }
     }
 }
